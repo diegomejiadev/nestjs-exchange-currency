@@ -1,5 +1,5 @@
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './infrastructure/app.module';
+import { CurrencyModule } from './presentation/currency.module';
 import {
   FastifyAdapter,
   NestFastifyApplication,
@@ -7,7 +7,7 @@ import {
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
-    AppModule,
+    CurrencyModule,
     new FastifyAdapter(),
   );
   await app.listen(3000);
