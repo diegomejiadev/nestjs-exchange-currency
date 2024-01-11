@@ -4,4 +4,5 @@ export class CurrencyEntity {
   originCurrency: string;
   destinyCurrency: string;
   exchangeType: string;
+  lastUpdated: string;
 }
