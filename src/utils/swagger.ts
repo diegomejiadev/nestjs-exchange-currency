@@ -8,6 +8,7 @@ export const swaggerSetup = (app: NestFastifyApplication) => {
       'Proyecto desarrollado en NestJS para la conversión de divisas',
     )
     .setVersion('1.0')
+    .addBearerAuth()
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
