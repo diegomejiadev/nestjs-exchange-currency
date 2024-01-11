@@ -1,16 +1,16 @@
 import { NestFactory } from '@nestjs/core';
-import { CurrencyModule } from './presentation/currency.module';
 import {
   FastifyAdapter,
   NestFastifyApplication,
 } from '@nestjs/platform-fastify';
 import { ValidationPipe } from '@nestjs/common';
 import { swaggerSetup } from './utils/swagger';
+import { AppModule } from './presentation/app.module';
 
 async function bootstrap() {
   //* Indicamos que va a estar levantado en Fastify
   const app = await NestFactory.create<NestFastifyApplication>(
-    CurrencyModule,
+    AppModule,
     new FastifyAdapter(),
   );
 
