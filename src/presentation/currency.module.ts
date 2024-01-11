@@ -2,10 +2,12 @@ import { CurrencyRepositoryImpl } from 'src/infrastructure/repositories/currency
 import { CurrencyController } from './controllers/currency.controller';
 import { CurrencyService } from './services/currency.service';
 import { Module } from '@nestjs/common';
-import { MockCurrencyDatasourceImpl } from 'src/infrastructure/datasources/mock-currency.datasource.impl';
+import { RedisCurrencyDatasource } from 'src/infrastructure/datasources/redis-currency.datasource.impl';
+import { ConfigModule } from '@nestjs/config';
+import { RedisModule } from 'src/data/redis/redis.module';
 
 @Module({
-  imports: [],
+  imports: [ConfigModule.forRoot(), RedisModule],
   controllers: [CurrencyController],
   providers: [
     CurrencyService,
@@ -15,7 +17,7 @@ import { MockCurrencyDatasourceImpl } from 'src/infrastructure/datasources/mock-
     },
     {
       provide: 'CurrencyDatasource',
-      useClass: MockCurrencyDatasourceImpl,
+      useClass: RedisCurrencyDatasource,
     },
   ],
 })
