@@ -3,11 +3,11 @@ import { CurrencyController } from './controllers/currency.controller';
 import { CurrencyService } from './services/currency.service';
 import { Module } from '@nestjs/common';
 import { RedisCurrencyDatasource } from 'src/infrastructure/datasources/redis-currency.datasource.impl';
-import { ConfigModule } from '@nestjs/config';
 import { RedisModule } from 'src/data/redis/redis.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [ConfigModule.forRoot(), RedisModule],
+  imports: [RedisModule, ConfigModule.forRoot()],
   controllers: [CurrencyController],
   providers: [
     CurrencyService,
