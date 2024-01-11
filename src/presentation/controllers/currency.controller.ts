@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { CurrencyInputDto } from 'src/domain/dto/currency-input.dto';
 import { CurrencyService } from '../services/currency.service';
 
@@ -9,5 +9,10 @@ export class CurrencyController {
   @Post()
   exchangeCurrency(@Body() body: CurrencyInputDto) {
     return this.currencyService.exchangeCurrency(body);
+  }
+
+  @Get()
+  loadAllCurrencies() {
+    return this.currencyService.loadAllCurrencies();
   }
 }

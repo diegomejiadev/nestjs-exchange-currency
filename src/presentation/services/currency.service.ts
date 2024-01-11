@@ -12,4 +12,8 @@ export class CurrencyService {
   exchangeCurrency(currencyInput: CurrencyInputDto) {
     return this.currencyRepository.exchangeCurrency(currencyInput);
   }
+
+  loadAllCurrencies() {
+    return this.currencyRepository.loadAllCurrencies();
+  }
 }
