@@ -9,10 +9,7 @@ import { AppModule } from './presentation/app.module';
 
 async function bootstrap() {
   //* Indicamos que va a estar levantado en Fastify
-  const app = await NestFactory.create<NestFastifyApplication>(
-    AppModule,
-    new FastifyAdapter(),
-  );
+  const app = await NestFactory.create(AppModule);
 
   // * Agregamos un Pipe para la validación de DTOs
   app.useGlobalPipes(
