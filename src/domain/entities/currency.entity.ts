@@ -1,13 +1,28 @@
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CurrencyEntity {
-  @ApiProperty()
+  @ApiProperty({
+    default: 'PEN',
+  })
   code: string;
 
-  @ApiProperty()
+  @ApiProperty({
+    default: new Date().toISOString(),
+  })
   updated_at: string;
 
-  @ApiProperty()
+  @ApiProperty({
+    default: {
+      USD: {
+        code: 'USD',
+        value: 0.27,
+      },
+      EUR: {
+        code: 'EUR',
+        value: 0.25,
+      },
+    },
+  })
   data: Record<
     string,
     {
