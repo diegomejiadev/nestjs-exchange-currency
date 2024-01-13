@@ -15,6 +15,9 @@ async function bootstrap() {
     new FastifyAdapter(),
   );
 
+  //* Habilitamos el CORS
+  app.enableCors();
+
   // * Agregamos un Pipe para la validación de DTOs
   app.useGlobalPipes(
     new ValidationPipe({
