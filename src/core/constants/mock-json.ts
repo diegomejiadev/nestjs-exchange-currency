@@ -6,10 +6,6 @@ export const USDCurrency: ILoadCurrency = {
   },
   code: 'USD',
   data: {
-    USD: {
-      code: 'USD',
-      value: 1,
-    },
     EUR: {
       code: 'EUR',
       value: 0.91,
@@ -35,10 +31,6 @@ export const EURCurrency: ILoadCurrency = {
   },
   code: 'EUR',
   data: {
-    EUR: {
-      code: 'EUR',
-      value: 1,
-    },
     USD: {
       code: 'USD',
       value: 1.1,
@@ -64,10 +56,6 @@ export const PENCurrency: ILoadCurrency = {
   },
   code: 'PEN',
   data: {
-    PEN: {
-      code: 'PEN',
-      value: 1,
-    },
     USD: {
       code: 'USD',
       value: 0.27,
@@ -93,10 +81,6 @@ export const YENCurrency: ILoadCurrency = {
   },
   code: 'YEN',
   data: {
-    YEN: {
-      code: 'YEN',
-      value: 1,
-    },
     USD: {
       code: 'USD',
       value: 0.0069,
@@ -122,10 +106,6 @@ export const GBPCurrency: ILoadCurrency = {
   },
   code: 'GBP',
   data: {
-    GBP: {
-      code: 'GBP',
-      value: 1,
-    },
     USD: {
       code: 'USD',
       value: 1.28,
