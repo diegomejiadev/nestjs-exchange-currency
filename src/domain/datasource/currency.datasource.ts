@@ -16,4 +16,7 @@ export interface CurrencyDataSource {
   updateCurrency(
     updateCurrencyInputDto: UpdateCurrencyInputDto,
   ): Promise<CurrencyEntity>;
+
+  //* Funcion que retorna todos los tipos de moneda presentes
+  listAllCurrencies(): Promise<CurrencyEntity[]>;
 }
