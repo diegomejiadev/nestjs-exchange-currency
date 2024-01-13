@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { ExchangeCurrencyInputDto } from 'src/domain/dto/currency-input.dto';
-import { ExchangeCurrencyEntity } from 'src/domain/entities/currency.entity';
+import { ExchangeCurrencyEntity } from 'src/domain/entities/exchange-currency.entity';
 import { CurrencyRepository } from 'src/domain/repositories/currency.repository';
 
 @Injectable()
