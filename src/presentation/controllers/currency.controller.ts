@@ -5,6 +5,8 @@ import { JwtAuthGuard } from '../guards/jwt.guard';
 import {
   ApiBearerAuth,
   ApiCreatedResponse,
+  ApiInternalServerErrorResponse,
+  ApiNotFoundResponse,
   ApiOkResponse,
   ApiOperation,
   ApiTags,
@@ -28,6 +30,20 @@ export class CurrencyController {
       'Valores obtenidos de forma exitosa con los tipos de monedas disponibles',
     type: [CurrencyEntity],
   })
+  @ApiInternalServerErrorResponse({
+    description:
+      'Excepción manejada en caso de que no se pueda listar los tipos de monedas',
+    schema: {
+      items: {
+        example: {
+          timestamp: new Date().toISOString(),
+          statusCode: 500,
+          path: '/api/currency/list',
+          message: 'Internal server error',
+        },
+      },
+    },
+  })
   @Get('list')
   listAllCurrencies() {
     return this.currencyService.listAllCurrencies();
@@ -41,6 +57,48 @@ export class CurrencyController {
     description:
       'Información del cambio de moneda destino con el monto solicitado del tipo de moneda origen',
     type: ExchangeCurrencyEntity,
+  })
+  @ApiNotFoundResponse({
+    description:
+      'Excepción manejada en caso de que el tipo de moneda de destino no exista',
+    schema: {
+      items: {
+        example: {
+          timestamp: new Date().toISOString(),
+          statusCode: 404,
+          path: '/api/currency/exchange',
+          message: 'No se encontró el tipo de cambio de destino',
+        },
+      },
+    },
+  })
+  @ApiNotFoundResponse({
+    description:
+      'Excepción manejada en caso de que alguna de los tipos de moneda de origen no exista',
+    schema: {
+      items: {
+        example: {
+          timestamp: new Date().toISOString(),
+          statusCode: 404,
+          path: '/api/currency/exchange',
+          message: 'No se encontró el tipo de cambio de origen',
+        },
+      },
+    },
+  })
+  @ApiInternalServerErrorResponse({
+    description:
+      'Excepción manejada en caso de que el servidor presente un error interno al cambiar el tipo de moneda',
+    schema: {
+      items: {
+        example: {
+          timestamp: new Date().toISOString(),
+          statusCode: 500,
+          path: '/api/currency/list',
+          message: 'Internal server error',
+        },
+      },
+    },
   })
   @UseGuards(JwtAuthGuard)
   @Post('exchange')
@@ -56,6 +114,20 @@ export class CurrencyController {
     description:
       'Carga de los valores iniciales de los tipos de moneda presentes',
   })
+  @ApiInternalServerErrorResponse({
+    description:
+      'Excepción manejada en caso de que no se pueda cargar los valores iniciales de los tipos de moneda',
+    schema: {
+      items: {
+        example: {
+          timestamp: new Date().toISOString(),
+          statusCode: 500,
+          path: '/api/currency/list',
+          message: 'Internal server error',
+        },
+      },
+    },
+  })
   @UseGuards(JwtAuthGuard)
   @Post('load')
   loadAllCurrencies() {
@@ -70,6 +142,48 @@ export class CurrencyController {
     description:
       'Actualización del tipo de cambio de una moneda con respecto a los valores que tiene con otros tipos de monedas',
     type: CurrencyEntity,
+  })
+  @ApiNotFoundResponse({
+    description:
+      'Excepción manejada en caso de que el tipo de moneda de destino no exista',
+    schema: {
+      items: {
+        example: {
+          timestamp: new Date().toISOString(),
+          statusCode: 404,
+          path: '/api/currency/exchange',
+          message: 'No se encontró el tipo de cambio de destino',
+        },
+      },
+    },
+  })
+  @ApiNotFoundResponse({
+    description:
+      'Excepción manejada en caso de que alguna de los tipos de moneda de origen no exista',
+    schema: {
+      items: {
+        example: {
+          timestamp: new Date().toISOString(),
+          statusCode: 404,
+          path: '/api/currency/exchange',
+          message: 'No se encontró el tipo de cambio de origen',
+        },
+      },
+    },
+  })
+  @ApiInternalServerErrorResponse({
+    description:
+      'Excepción manejada en caso de que el servidor presente un error interno al actualizar un tipo de moneda',
+    schema: {
+      items: {
+        example: {
+          timestamp: new Date().toISOString(),
+          statusCode: 500,
+          path: '/api/currency/list',
+          message: 'Internal server error',
+        },
+      },
+    },
   })
   @UseGuards(JwtAuthGuard)
   @Post('update')

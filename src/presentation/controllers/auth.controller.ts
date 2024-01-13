@@ -4,7 +4,12 @@ https://docs.nestjs.com/controllers#controllers
 
 import { Controller, Post } from '@nestjs/common';
 import { AuthService } from '../services/auth.service';
-import { ApiCreatedResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
+import {
+  ApiCreatedResponse,
+  ApiInternalServerErrorResponse,
+  ApiOperation,
+  ApiTags,
+} from '@nestjs/swagger';
 import { JwtEntity } from 'src/domain/entities/jwt.entity';
 
 @ApiTags('Auth')
@@ -19,6 +24,19 @@ export class AuthController {
     description:
       'JWT Token válido para utilizarse en peticiones de Cambio de Tipo de Monedas',
     type: JwtEntity,
+  })
+  @ApiInternalServerErrorResponse({
+    description: 'Excepción manejada en caso de que no se pueda generar el JWT',
+    schema: {
+      items: {
+        example: {
+          timestamp: new Date().toISOString(),
+          statusCode: 500,
+          path: '/api/auth/login',
+          message: 'Internal server error',
+        },
+      },
+    },
   })
   @Post('login')
   async login() {
