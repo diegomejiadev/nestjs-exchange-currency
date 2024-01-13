@@ -2,13 +2,14 @@ version: '3.7'
 services:
   app:
     container_name: joyit_backend
+    restart: always
     build:
       context: .
       dockerfile: Dockerfile
     env_file:
       - .env
     ports:
-      - '3000:3000'
+      - '80:3000'
     networks:
       - joyit
 
