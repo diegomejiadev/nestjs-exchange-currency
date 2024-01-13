@@ -17,7 +17,7 @@ export class CurrencyController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Get()
+  @Post('load')
   loadAllCurrencies() {
     return this.currencyService.loadAllCurrencies();
   }
