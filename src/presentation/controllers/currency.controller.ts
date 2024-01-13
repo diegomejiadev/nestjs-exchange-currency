@@ -94,7 +94,7 @@ export class CurrencyController {
         example: {
           timestamp: new Date().toISOString(),
           statusCode: 500,
-          path: '/api/currency/list',
+          path: '/api/currency/exchange',
           message: 'Internal server error',
         },
       },
@@ -122,7 +122,7 @@ export class CurrencyController {
         example: {
           timestamp: new Date().toISOString(),
           statusCode: 500,
-          path: '/api/currency/list',
+          path: '/api/currency/load',
           message: 'Internal server error',
         },
       },
