@@ -11,7 +11,7 @@ export class CurrencyController {
   constructor(private readonly currencyService: CurrencyService) {}
 
   @UseGuards(JwtAuthGuard)
-  @Post()
+  @Post('exchange')
   exchangeCurrency(@Body() body: ExchangeCurrencyInputDto) {
     return this.currencyService.exchangeCurrency(body);
   }
