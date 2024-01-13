@@ -1,20 +1,23 @@
 import { Module } from '@nestjs/common';
-import { CacheModule } from '@nestjs/cache-manager';
-import { redisStore } from 'cache-manager-redis-store';
+import { ConfigModule } from '@nestjs/config';
+import { RedisModule } from '@liaoliaots/nestjs-redis';
 
 @Module({
   imports: [
-    CacheModule.register({
-      // @ts-ignore
-      store: async () =>
-        await redisStore({
-          socket: {
-            host: process.env.REDIS_HOST,
-            port: Number(process.env.REDIS_PORT!),
-          },
-        }),
+    ConfigModule.forRoot(),
+    RedisModule.forRoot({
+      readyLog: true,
+      config: {
+        // url: 'redis://default:6fsIDfdmXMBABxD4qt2I6AhsQIYHpmUm@redis-15708.c266.us-east-1-3.ec2.cloud.redislabs.com:15708',
+        host: process.env.REDIS_HOST,
+        port: +process.env.REDIS_PORT,
+        username: process.env.REDIS_USER,
+        password: process.env.REDIS_PASSWORD,
+      },
     }),
   ],
-  exports: [CacheModule],
+  controllers: [],
+  providers: [],
+  exports: [RedisModule],
 })
-export class RedisModule {}
+export class RedisLocalModule {}
