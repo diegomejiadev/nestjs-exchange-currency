@@ -1,8 +1,28 @@
 import { CurrencyDataSource } from 'src/domain/datasource/currency.datasource';
 import { ExchangeCurrencyInputDto } from 'src/domain/dto/exchange-currency-input.dto';
+import { UpdateCurrencyInputDto } from 'src/domain/dto/update-currency-input.dto';
+import { CurrencyEntity } from 'src/domain/entities/currency.entity';
 import { ExchangeCurrencyEntity } from 'src/domain/entities/exchange-currency.entity';
 
 export class MockCurrencyDatasourceImpl implements CurrencyDataSource {
+  async updateCurrency(
+    updateCurrencyInputDto: UpdateCurrencyInputDto,
+  ): Promise<CurrencyEntity> {
+    return {
+      code: updateCurrencyInputDto.code,
+      updated_at: new Date().toISOString(),
+      data: {
+        USD: {
+          code: 'USD',
+          value: 3.7,
+        },
+        EUR: {
+          code: 'EUR',
+          value: 4,
+        },
+      },
+    };
+  }
   async loadAllCurrencies(): Promise<boolean> {
     return true;
   }
