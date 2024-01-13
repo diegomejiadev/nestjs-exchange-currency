@@ -5,6 +5,52 @@ import { CurrencyEntity } from 'src/domain/entities/currency.entity';
 import { ExchangeCurrencyEntity } from 'src/domain/entities/exchange-currency.entity';
 
 export class MockCurrencyDatasourceImpl implements CurrencyDataSource {
+  async listAllCurrencies(): Promise<CurrencyEntity[]> {
+    return [
+      {
+        code: 'PEN',
+        updated_at: new Date().toISOString(),
+        data: {
+          USD: {
+            code: 'USD',
+            value: 0.27,
+          },
+          EUR: {
+            code: 'EUR',
+            value: 0.25,
+          },
+        },
+      },
+      {
+        code: 'USD',
+        updated_at: new Date().toISOString(),
+        data: {
+          EUR: {
+            code: 'EUR',
+            value: 0.91,
+          },
+          PEN: {
+            code: 'PEN',
+            value: 3.7,
+          },
+        },
+      },
+      {
+        code: 'EUR',
+        updated_at: new Date().toISOString(),
+        data: {
+          USD: {
+            code: 'USD',
+            value: 1.1,
+          },
+          PEN: {
+            code: 'PEN',
+            value: 4.07,
+          },
+        },
+      },
+    ];
+  }
   async updateCurrency(
     updateCurrencyInputDto: UpdateCurrencyInputDto,
   ): Promise<CurrencyEntity> {

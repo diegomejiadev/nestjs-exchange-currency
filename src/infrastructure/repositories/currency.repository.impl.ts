@@ -11,6 +11,9 @@ export class CurrencyRepositoryImpl implements CurrencyRepository {
     @Inject('CurrencyDatasource')
     private readonly currencyRepository: CurrencyRepository,
   ) {}
+  async listAllCurrencies(): Promise<CurrencyEntity[]> {
+    return await this.currencyRepository.listAllCurrencies();
+  }
   async updateCurrency(
     updateCurrencyInputDto: UpdateCurrencyInputDto,
   ): Promise<CurrencyEntity> {

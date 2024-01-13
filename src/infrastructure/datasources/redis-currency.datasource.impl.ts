@@ -28,15 +28,43 @@ export class RedisCurrencyDatasource implements CurrencyDataSource {
   }
 
   /*
+   * LIST ALL CURRENCIES
+   */
+  async listAllCurrencies(): Promise<CurrencyEntity[]> {
+    //* Obtenemos todas las keys presentes en la in-memory database
+    const keys = await this.client.keys('*');
+
+    //* Hacemos la peticion de esas keys a la in-memory database
+    const promises = keys.map(async (key) => await this.client.get(key));
+
+    //* Ejecutamos las promesas con un Promise.all
+    const currencies = await Promise.all(promises);
+
+    //* Convertimos el string a JSON
+    const parsedCurrencies: ILoadCurrency[] = currencies.map((currency) =>
+      JSON.parse(currency),
+    );
+
+    return parsedCurrencies.map((currency) => ({
+      code: currency.code,
+      updated_at: currency.meta.last_updated_at,
+      data: currency.data,
+    }));
+  }
+
+  /*
    * UPDATE CURRENCY
    */
   async updateCurrency(
     updateCurrencyInputDto: UpdateCurrencyInputDto,
   ): Promise<CurrencyEntity> {
+    //* Desestructuramos el input
     const { code, data } = updateCurrencyInputDto;
 
+    //* Creamos una constante con el código ingresado pero convertido a mayusculas
     const originCurrencyText = code.trim().toUpperCase();
 
+    //* Buscamos si existe el tipo de moneda de origen en la in-memory database
     const foundCurrency: string | null =
       await this.client.get(originCurrencyText);
 
