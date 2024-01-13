@@ -21,4 +21,8 @@ export class CurrencyService {
   updateCurrency(updateCurrencyInputDto: UpdateCurrencyInputDto) {
     return this.currencyRepository.updateCurrency(updateCurrencyInputDto);
   }
+
+  listAllCurrencies() {
+    return this.currencyRepository.listAllCurrencies();
+  }
 }

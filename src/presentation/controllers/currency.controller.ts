@@ -5,6 +5,7 @@ import { JwtAuthGuard } from '../guards/jwt.guard';
 import {
   ApiBearerAuth,
   ApiCreatedResponse,
+  ApiOkResponse,
   ApiOperation,
   ApiTags,
 } from '@nestjs/swagger';
@@ -17,6 +18,20 @@ import { CurrencyEntity } from 'src/domain/entities/currency.entity';
 @Controller('currency')
 export class CurrencyController {
   constructor(private readonly currencyService: CurrencyService) {}
+
+  @ApiOperation({
+    description:
+      'Función que lista todos los tipos de monedas y sus valores con respecto a otras monedas',
+  })
+  @ApiOkResponse({
+    description:
+      'Valores obtenidos de forma exitosa con los tipos de monedas disponibles',
+    type: [CurrencyEntity],
+  })
+  @Get('list')
+  listAllCurrencies() {
+    return this.currencyService.listAllCurrencies();
+  }
 
   @ApiOperation({
     description:
