@@ -10,7 +10,10 @@ import { HttpExceptionFilter } from './core/exceptions/http.exception';
 
 async function bootstrap() {
   //* Indicamos que va a estar levantado en Fastify
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create<NestFastifyApplication>(
+    AppModule,
+    new FastifyAdapter(),
+  );
 
   // * Agregamos un Pipe para la validación de DTOs
   app.useGlobalPipes(
@@ -29,6 +32,6 @@ async function bootstrap() {
   swaggerSetup(app);
 
   //* Indicamos el Puerto en el que va a escuchar el servidor
-  await app.listen(3000);
+  await app.listen(3000, '0.0.0.0');
 }
 bootstrap();

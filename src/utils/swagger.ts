@@ -1,7 +1,8 @@
 import { INestApplication } from '@nestjs/common';
+import { NestFastifyApplication } from '@nestjs/platform-fastify';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
-export const swaggerSetup = (app: INestApplication) => {
+export const swaggerSetup = (app: NestFastifyApplication) => {
   const config = new DocumentBuilder()
     .setTitle('Joyit Exchange Currency')
     .setDescription(
