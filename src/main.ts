@@ -6,6 +6,7 @@ import {
 import { ValidationPipe } from '@nestjs/common';
 import { swaggerSetup } from './utils/swagger';
 import { AppModule } from './presentation/app.module';
+import { HttpExceptionFilter } from './core/exceptions/http.exception';
 
 async function bootstrap() {
   //* Indicamos que va a estar levantado en Fastify
@@ -17,6 +18,9 @@ async function bootstrap() {
       whitelist: true,
     }),
   );
+
+  //* Agregamos un filter para el control de excepciones
+  app.useGlobalFilters(new HttpExceptionFilter());
 
   //* Ingresamos el prefijo global para llamar a la API
   app.setGlobalPrefix('/api');
