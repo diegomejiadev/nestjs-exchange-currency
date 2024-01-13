@@ -1,14 +1,14 @@
 import { CurrencyDataSource } from 'src/domain/datasource/currency.datasource';
-import { CurrencyInputDto } from 'src/domain/dto/currency-input.dto';
-import { CurrencyEntity } from 'src/domain/entities/currency.entity';
+import { ExchangeCurrencyInputDto } from 'src/domain/dto/currency-input.dto';
+import { ExchangeCurrencyEntity } from 'src/domain/entities/currency.entity';
 
 export class MockCurrencyDatasourceImpl implements CurrencyDataSource {
-  loadAllCurrencies(): Promise<boolean> {
-    throw new Error('Method not implemented.');
+  async loadAllCurrencies(): Promise<boolean> {
+    return true;
   }
   async exchangeCurrency(
-    currencyInput: CurrencyInputDto,
-  ): Promise<CurrencyEntity> {
+    currencyInput: ExchangeCurrencyInputDto,
+  ): Promise<ExchangeCurrencyEntity> {
     return {
       amount: currencyInput.amount * 3.5,
       baseAmount: 3.5,

@@ -9,8 +9,8 @@ import {
   GBPCurrency,
 } from 'src/core/constants/mock-json';
 import { CurrencyDataSource } from 'src/domain/datasource/currency.datasource';
-import { CurrencyInputDto } from 'src/domain/dto/currency-input.dto';
-import { CurrencyEntity } from 'src/domain/entities/currency.entity';
+import { ExchangeCurrencyInputDto } from 'src/domain/dto/currency-input.dto';
+import { ExchangeCurrencyEntity } from 'src/domain/entities/currency.entity';
 import { ILoadCurrency } from 'src/domain/interfaces/load-currency.interface';
 
 @Injectable()
@@ -22,8 +22,8 @@ export class RedisCurrencyDatasource implements CurrencyDataSource {
   }
 
   async exchangeCurrency(
-    currencyInput: CurrencyInputDto,
-  ): Promise<CurrencyEntity> {
+    currencyInput: ExchangeCurrencyInputDto,
+  ): Promise<ExchangeCurrencyEntity> {
     const { amount, destinyCurrency, originCurrency } = currencyInput;
 
     const originCurrencyText = originCurrency.trim().toUpperCase();

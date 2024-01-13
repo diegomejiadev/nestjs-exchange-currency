@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { CurrencyInputDto } from 'src/domain/dto/currency-input.dto';
-import { CurrencyEntity } from 'src/domain/entities/currency.entity';
+import { ExchangeCurrencyInputDto } from 'src/domain/dto/currency-input.dto';
+import { ExchangeCurrencyEntity } from 'src/domain/entities/currency.entity';
 import { CurrencyRepository } from 'src/domain/repositories/currency.repository';
 
 @Injectable()
@@ -10,7 +10,7 @@ export class CurrencyRepositoryImpl implements CurrencyRepository {
     private readonly currencyRepository: CurrencyRepository,
   ) {}
 
-  async exchangeCurrency(currencyInput: CurrencyInputDto): Promise<CurrencyEntity> {
+  async exchangeCurrency(currencyInput: ExchangeCurrencyInputDto): Promise<ExchangeCurrencyEntity> {
     return await this.currencyRepository.exchangeCurrency(currencyInput);
   }
 

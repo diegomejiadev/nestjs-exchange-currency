@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { CurrencyInputDto } from 'src/domain/dto/currency-input.dto';
+import { ExchangeCurrencyInputDto } from 'src/domain/dto/currency-input.dto';
 import { CurrencyRepository } from 'src/domain/repositories/currency.repository';
 
 @Injectable()
@@ -9,7 +9,7 @@ export class CurrencyService {
     private readonly currencyRepository: CurrencyRepository,
   ) {}
 
-  exchangeCurrency(currencyInput: CurrencyInputDto) {
+  exchangeCurrency(currencyInput: ExchangeCurrencyInputDto) {
     return this.currencyRepository.exchangeCurrency(currencyInput);
   }
 

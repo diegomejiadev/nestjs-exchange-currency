@@ -1,7 +1,7 @@
-import { CurrencyInputDto } from '../dto/currency-input.dto';
-import { CurrencyEntity } from '../entities/currency.entity';
+import { ExchangeCurrencyInputDto } from '../dto/currency-input.dto';
+import { ExchangeCurrencyEntity } from '../entities/currency.entity';
 
 export interface CurrencyRepository {
-  exchangeCurrency(currencyInput: CurrencyInputDto): Promise<CurrencyEntity>;
+  exchangeCurrency(currencyInput: ExchangeCurrencyInputDto): Promise<ExchangeCurrencyEntity>;
   loadAllCurrencies(): Promise<boolean>;
 }

@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsNumber, IsString, Min } from 'class-validator';
 
-export class CurrencyInputDto {
+export class ExchangeCurrencyInputDto {
   @ApiProperty({
     description: 'Valor inicial que va a ser convertido',
     default: 10,
