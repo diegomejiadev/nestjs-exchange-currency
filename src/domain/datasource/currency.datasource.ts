@@ -1,4 +1,4 @@
-import { ExchangeCurrencyInputDto } from '../dto/currency-input.dto';
+import { ExchangeCurrencyInputDto } from '../dto/exchange-currency-input.dto';
 import { ExchangeCurrencyEntity } from '../entities/exchange-currency.entity';
 
 export interface CurrencyDataSource {

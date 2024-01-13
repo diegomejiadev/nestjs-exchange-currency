@@ -9,7 +9,7 @@ import {
   GBPCurrency,
 } from 'src/core/constants/mock-json';
 import { CurrencyDataSource } from 'src/domain/datasource/currency.datasource';
-import { ExchangeCurrencyInputDto } from 'src/domain/dto/currency-input.dto';
+import { ExchangeCurrencyInputDto } from 'src/domain/dto/exchange-currency-input.dto';
 import { ExchangeCurrencyEntity } from 'src/domain/entities/exchange-currency.entity';
 import { ILoadCurrency } from 'src/domain/interfaces/load-currency.interface';
 

@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
-import { ExchangeCurrencyInputDto } from 'src/domain/dto/currency-input.dto';
+import { ExchangeCurrencyInputDto } from 'src/domain/dto/exchange-currency-input.dto';
 import { CurrencyService } from '../services/currency.service';
 import { JwtAuthGuard } from '../guards/jwt.guard';
 import { ApiBearerAuth } from '@nestjs/swagger';

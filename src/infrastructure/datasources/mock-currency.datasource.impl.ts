@@ -1,5 +1,5 @@
 import { CurrencyDataSource } from 'src/domain/datasource/currency.datasource';
-import { ExchangeCurrencyInputDto } from 'src/domain/dto/currency-input.dto';
+import { ExchangeCurrencyInputDto } from 'src/domain/dto/exchange-currency-input.dto';
 import { ExchangeCurrencyEntity } from 'src/domain/entities/exchange-currency.entity';
 
 export class MockCurrencyDatasourceImpl implements CurrencyDataSource {
