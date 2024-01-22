@@ -1,37 +1,29 @@
-<p align="center" style="font-size:28px; font-weight: bold;">NestJs Exchange currencyu</p>
+<p align="center" style="font-size:28px; font-weight: bold;">NestJs Exchange Currency</p>
 
 <p align="center">
   <a href="http://52.200.221.152/docs" target="blank"><img src="https://www.svgrepo.com/download/30451/coin.svg" width="200" alt="Nest Logo" /></a>
 </p>
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+  <p align="center">Un proyecto en backend para <a href="https://github.com/diegomejiadev/nestjs-exchange-currency" target="_blank">Nest.js (Repositorio)</a> para poder realizar cambios de divisa, actualizar monedas, listar, entre otros</p>
 
-## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Descripción
+
+[Proyecto](https://github.com/nestjs/nest) realizado en NestJs dedicado al cambio de divisas de múltiples monedas, tales como <b>PEN, USD, YEN, EUR, GBP,</b> los cuales pueden ser llamados mediante API Rest Endpoints. Incluye archivos Testing.
+
+El proyecto cuenta con documentación a nivel de código y Swagger (OpenAPI) para facilitar las peticiones a los servicios.
+
+Adicionalmente se ha agregado la autenticación mediante JSON Web Token (JWT) y su respectivo endpoint.
+
+
 
 ## Installation
 
 ```bash
-npm install
+npm install --legacy-peer-deps
 ```
 
-## Running the app
+## Ejecutar la aplicación
 
 ```bash
 # development
@@ -44,29 +36,28 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Test
+## Testeo y pruebas
 
 ```bash
 # unit tests
 $ npm run test
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
+# coverage tests
 $ npm run test:cov
+
+# test watch
+$ npm run test:watch
 ```
 
-## Support
+## Swagger (OpenAPI)
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Para ingresar a la ruta de OpenAPI debe primero ejecutar la aplicación (Ver más arriba).
+
+Una vez ejecutada puede ir a la ruta donde se ha desplegado, la cual suele ser [localhost:3000/docs](http://localhost:3000/docs).
+
+En caso desee ver el despliegue en producción puede ir a la [siguiente ruta.](http://52.200.221.152/docs)
 
 ## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+- Author - [Diego Mejia Salinas](https://github.com/diegomejiadev/nestjs-exchange-currency)
+- LinkedIn - [DiegoMejiaDev](https://www.linkedin.com/in/diego-mejia-dev/)
