@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CurrencyController list all currencies 1`] = `
+{
+  "code": Any<String>,
+  "data": {
+    "EUR": {
+      "code": "EUR",
+      "value": 0.25,
+    },
+    "USD": {
+      "code": "USD",
+      "value": 0.27,
+    },
+  },
+  "updated_at": Any<String>,
+}
+`;
+
+exports[`CurrencyController list all currencies 2`] = `
+{
+  "code": Any<String>,
+  "data": {
+    "EUR": {
+      "code": "EUR",
+      "value": 0.91,
+    },
+    "PEN": {
+      "code": "PEN",
+      "value": 3.7,
+    },
+  },
+  "updated_at": Any<String>,
+}
+`;

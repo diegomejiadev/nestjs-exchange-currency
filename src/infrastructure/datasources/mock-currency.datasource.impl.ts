@@ -6,10 +6,10 @@ import { ExchangeCurrencyEntity } from 'src/domain/entities/exchange-currency.en
 
 export class MockCurrencyDatasourceImpl implements CurrencyDataSource {
   async listAllCurrencies(): Promise<CurrencyEntity[]> {
-    return [
+    return Promise.resolve([
       {
         code: 'PEN',
-        updated_at: '2024-01-21T23:13:21.334Z',
+        updated_at: new Date().toISOString(),
         data: {
           USD: {
             code: 'USD',
@@ -23,7 +23,7 @@ export class MockCurrencyDatasourceImpl implements CurrencyDataSource {
       },
       {
         code: 'USD',
-        updated_at: '2024-01-21T23:13:21.334Z',
+        updated_at: new Date().toISOString(),
         data: {
           EUR: {
             code: 'EUR',
@@ -37,7 +37,7 @@ export class MockCurrencyDatasourceImpl implements CurrencyDataSource {
       },
       {
         code: 'EUR',
-        updated_at: '2024-01-21T23:13:21.334Z',
+        updated_at: new Date().toISOString(),
         data: {
           USD: {
             code: 'USD',
@@ -49,39 +49,39 @@ export class MockCurrencyDatasourceImpl implements CurrencyDataSource {
           },
         },
       },
-    ];
+    ]);
   }
   async updateCurrency(
     updateCurrencyInputDto: UpdateCurrencyInputDto,
   ): Promise<CurrencyEntity> {
-    return {
+    const data = {};
+
+    Object.keys(updateCurrencyInputDto.data).map((dataItem) => {
+      data[dataItem] = {
+        code: dataItem,
+        value: updateCurrencyInputDto.data[dataItem],
+      };
+    });
+
+    return Promise.resolve({
       code: updateCurrencyInputDto.code,
-      updated_at: '2024-01-21T23:13:21.334Z',
-      data: {
-        USD: {
-          code: 'USD',
-          value: 3.7,
-        },
-        EUR: {
-          code: 'EUR',
-          value: 4,
-        },
-      },
-    };
+      updated_at: new Date().toISOString(),
+      data,
+    });
   }
   async loadAllCurrencies(): Promise<boolean> {
-    return true;
+    return Promise.resolve(true);
   }
   async exchangeCurrency(
     currencyInput: ExchangeCurrencyInputDto,
   ): Promise<ExchangeCurrencyEntity> {
-    return {
+    return Promise.resolve({
       amount: currencyInput.amount * 3.5,
       baseAmount: 3.5,
-      lastUpdated: '2024-01-11T12:37:52.821',
+      lastUpdated: new Date().toISOString(),
       destinyCurrency: currencyInput.destinyCurrency,
       originCurrency: currencyInput.originCurrency,
-      exchangeType: `${currencyInput.originCurrency} -> ${currencyInput.destinyCurrency}`, //TODO Cambiar por precios y eso
-    };
+      exchangeType: `${currencyInput.originCurrency} -> ${currencyInput.destinyCurrency}`,
+    });
   }
 }

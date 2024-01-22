@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
-import { ExchangeCurrencyInputDto } from 'src/domain/dto/exchange-currency-input.dto';
+import { ExchangeCurrencyInputDto } from '../../domain/dto/exchange-currency-input.dto';
 import { CurrencyService } from '../services/currency.service';
 import { JwtAuthGuard } from '../guards/jwt.guard';
 import {
@@ -11,9 +11,9 @@ import {
   ApiOperation,
   ApiTags,
 } from '@nestjs/swagger';
-import { UpdateCurrencyInputDto } from 'src/domain/dto/update-currency-input.dto';
-import { ExchangeCurrencyEntity } from 'src/domain/entities/exchange-currency.entity';
-import { CurrencyEntity } from 'src/domain/entities/currency.entity';
+import { UpdateCurrencyInputDto } from '../../domain/dto/update-currency-input.dto';
+import { ExchangeCurrencyEntity } from '../../domain/entities/exchange-currency.entity';
+import { CurrencyEntity } from '../../domain/entities/currency.entity';
 
 @ApiTags('Currency')
 @ApiBearerAuth()

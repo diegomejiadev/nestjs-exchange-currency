@@ -30,7 +30,7 @@ describe('CurrencyService', () => {
     const result = [
       {
         code: 'PEN',
-        updated_at: '2024-01-21T23:13:21.334Z',
+        updated_at: expect.any(String),
         data: {
           USD: {
             code: 'USD',
@@ -44,7 +44,7 @@ describe('CurrencyService', () => {
       },
       {
         code: 'USD',
-        updated_at: '2024-01-21T23:13:21.334Z',
+        updated_at: expect.any(String),
         data: {
           EUR: {
             code: 'EUR',
@@ -58,7 +58,7 @@ describe('CurrencyService', () => {
       },
       {
         code: 'EUR',
-        updated_at: '2024-01-21T23:13:21.334Z',
+        updated_at: expect.any(String),
         data: {
           USD: {
             code: 'USD',
@@ -72,14 +72,14 @@ describe('CurrencyService', () => {
       },
     ];
 
-    expect(await service.listAllCurrencies()).toStrictEqual(result);
+    expect(await service.listAllCurrencies()).toEqual(result);
   });
 
   it('should exchange a currency', async () => {
     const result = {
       amount: 7,
       baseAmount: 3.5,
-      lastUpdated: '2024-01-11T12:37:52.821',
+      lastUpdated: expect.any(String),
       destinyCurrency: 'PEN',
       originCurrency: 'USD',
       exchangeType: `USD -> PEN`,
@@ -91,34 +91,39 @@ describe('CurrencyService', () => {
       originCurrency: 'USD',
     };
 
-    expect(await service.exchangeCurrency(body)).toStrictEqual(result);
+    expect(await service.exchangeCurrency(body)).toEqual(result);
   });
 
   it('should update currency', async () => {
-    const result = {
-      code: 'PEN',
-      updated_at: '2024-01-21T23:13:21.334Z',
-      data: {
-        USD: {
-          code: 'USD',
-          value: 3.7,
-        },
-        EUR: {
-          code: 'EUR',
-          value: 4,
-        },
-      },
-    };
-
     const body: UpdateCurrencyInputDto = {
       code: 'PEN',
       data: {
-        USD: 3.7,
-        EUR: 4,
+        USD: 3.5,
+        EUR: 4.2,
+        YEN: 10.6,
       },
     };
 
-    expect(await service.updateCurrency(body)).toStrictEqual(result);
+    const result = {
+      code: 'PEN',
+      updated_at: expect.any(String),
+      data: {
+        USD: {
+          code: 'USD',
+          value: 3.5,
+        },
+        EUR: {
+          code: 'EUR',
+          value: 4.2,
+        },
+        YEN: {
+          code: 'YEN',
+          value: 10.6,
+        },
+      },
+    };
+
+    expect(await service.updateCurrency(body)).toEqual(result);
   });
 
   it('should load all currencies', async () => {
