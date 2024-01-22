@@ -9,7 +9,7 @@ export class MockCurrencyDatasourceImpl implements CurrencyDataSource {
     return [
       {
         code: 'PEN',
-        updated_at: new Date().toISOString(),
+        updated_at: '2024-01-21T23:13:21.334Z',
         data: {
           USD: {
             code: 'USD',
@@ -23,7 +23,7 @@ export class MockCurrencyDatasourceImpl implements CurrencyDataSource {
       },
       {
         code: 'USD',
-        updated_at: new Date().toISOString(),
+        updated_at: '2024-01-21T23:13:21.334Z',
         data: {
           EUR: {
             code: 'EUR',
@@ -37,7 +37,7 @@ export class MockCurrencyDatasourceImpl implements CurrencyDataSource {
       },
       {
         code: 'EUR',
-        updated_at: new Date().toISOString(),
+        updated_at: '2024-01-21T23:13:21.334Z',
         data: {
           USD: {
             code: 'USD',
@@ -56,7 +56,7 @@ export class MockCurrencyDatasourceImpl implements CurrencyDataSource {
   ): Promise<CurrencyEntity> {
     return {
       code: updateCurrencyInputDto.code,
-      updated_at: new Date().toISOString(),
+      updated_at: '2024-01-21T23:13:21.334Z',
       data: {
         USD: {
           code: 'USD',
